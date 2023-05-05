@@ -46,7 +46,9 @@ public:
 
     String& operator=(const String);
 
-    char& operator[](size_t idx) const;
+    char& operator[](size_t) const;
+
+    void getline(std::istream&);
 
 }; /// Itt az osztály deklarációjának vége
 

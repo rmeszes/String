@@ -7,8 +7,8 @@
 #include <cstring>              // Sztringműveletekhez
 #include <cstddef>
 
-#include "memtrace.h"           // a standard headerek után kell lennie
 #include "string.h"
+#include "List.hpp"
 
 size_t String::size() const { return len; }
 
@@ -118,3 +118,33 @@ std::istream& operator>>(std::istream& is, String& s) {
     }
     return is;
 }
+
+/// <summary>
+/// Beolvas egy sort a kapott istream objectből
+/// </summary>
+/// <param name="is">istream object (általában cin)</param>
+void String::getline(std::istream& is)
+{
+    is.unsetf(std::istream::skipws);
+    char c;
+    is >> c;
+    while (c != '\n' && c != '\r' && !is.eof()) {
+        *this = *this + c;
+        is >> c;
+    }
+}
+
+/*List<char> chars;
+while (c != '\n' && c != '\r' && !is.eof()) {
+    chars.Add(c);
+    len++;
+}
+delete[] pData;
+pData = new char[len + 1];
+for (size_t i = 0; i < len; i++) {
+    char temp;
+    chars.Next(temp);
+    pData[i] = temp;
+}
+pData[len] = '\0';
+*/
