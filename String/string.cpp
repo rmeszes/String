@@ -6,6 +6,7 @@
 #include <iostream>             // Kiíratáshoz
 #include <cstring>              // Sztringműveletekhez
 #include <cstddef>
+#include <stdexcept>
 
 #include "string.h"
 
@@ -59,7 +60,7 @@ String& String::operator=(const String s) {
 /// [] operátorok: egy megadott indexű elem REFERENCIÁJÁVAL térnek vissza (charAtString)
 /// indexhiba esetén const char * kivételt dob!
 char& String::operator[](size_t idx) const {
-    if (idx >= len) throw "PRUHJB";
+    if (idx >= len) throw std::out_of_range("Index out of range");
     return pData[idx];
 }
 
