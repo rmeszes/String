@@ -24,9 +24,6 @@
     <ClInclude Include="memtrace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="List.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="string.cpp">
